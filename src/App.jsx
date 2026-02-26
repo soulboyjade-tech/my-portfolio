@@ -362,7 +362,6 @@ export default function App() {
                     loop 
                     playsInline 
                     preload="auto"
-                    crossOrigin="anonymous"
                     className="absolute inset-0 w-full h-full object-cover"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -648,9 +647,6 @@ export default function App() {
                     <div key={i} className="w-full md:w-[90%] aspect-video bg-black">
                       <video 
                         src={item.url} 
-                        autoPlay 
-                        muted 
-                        loop 
                         playsInline 
                         controls 
                         className="w-full h-full object-cover" 
