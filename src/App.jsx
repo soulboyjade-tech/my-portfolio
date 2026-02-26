@@ -4,9 +4,9 @@ import { ArrowLeft, ChevronDown } from 'lucide-react';
 
 // Banner 视频列表配置
 const BANNER_VIDEOS = [
-  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-02.MP4",
-  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-01.mp4", // 示例：重复用于演示切换效果
-  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-01.mp4"  // 示例：重复用于演示切换效果
+  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-01.mp4",
+  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-02.mp4",
+  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-03.mp4"
 ];
 
 // 项目数据配置
@@ -353,7 +353,7 @@ export default function App() {
                 {...fadeInUp(0)}
                 onClick={() => setCurrentBannerIndex((prev) => (prev + 1) % BANNER_VIDEOS.length)}
               >
-                <AnimatePresence>
+                <AnimatePresence mode="wait">
                   <motion.video 
                     key={currentBannerIndex}
                     src={BANNER_VIDEOS[currentBannerIndex]}
@@ -361,6 +361,7 @@ export default function App() {
                     muted 
                     loop 
                     playsInline 
+                    preload="auto"
                     crossOrigin="anonymous"
                     className="absolute inset-0 w-full h-full object-cover"
                     initial={{ opacity: 0 }}
@@ -369,6 +370,14 @@ export default function App() {
                     transition={{ duration: 1 }}
                   />
                 </AnimatePresence>
+
+                {/* 隐藏的预加载：提前加载下一个视频 */}
+                <video 
+                  key={`preload-${(currentBannerIndex + 1) % BANNER_VIDEOS.length}`}
+                  src={BANNER_VIDEOS[(currentBannerIndex + 1) % BANNER_VIDEOS.length]}
+                  preload="auto"
+                  className="hidden"
+                />
 
                 {/* 简约圆点指示器 */}
                 <div className="absolute bottom-6 left-0 w-full flex justify-center gap-3 z-20 pointer-events-none">
