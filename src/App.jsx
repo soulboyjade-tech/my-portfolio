@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ChevronDown } from 'lucide-react';
 
 // 项目数据配置
 const PROJECTS = [
@@ -17,6 +17,7 @@ const PROJECTS = [
 在东亚社会的语言中，不管是老人还是年轻人，人们都是在白天压抑自己却只在夜晚释放欲望。在我的调查中，这一群只在夜晚偷偷聚集，狂欢过后又回归生活的舞者，就像是对自我情感的欲望的对抗，并在崇尚安分守己的社会中寻求的一丝反叛。
 
 在 2022 年年底，我主要不间断跟拍刘叔两个月，试图通过刘叔来了解这一群体，探讨关于孤独，老年社交，和公共空间的社会议题。`,
+    homeTitle: "纪录片",
     previewImg: "https://picui.ogmua.cn/s1/2026/02/25/699f113324c36.webp",
     content: [
       { type: 'video', url: "https://6swydf55qetcfsax.public.blob.vercel-storage.com/%E9%95%BF%E7%89%8720260224.m4v" },
@@ -30,10 +31,11 @@ const PROJECTS = [
   {
     id: "02",
     title: "婚姻生活",
-    subtitle: "MARRIAGE STORY",
+    subtitle: "MARRIAGE LIFE",
     category: "Narrative / 叙事摄影",
     year: "2024",
     description: "婚姻是什么？这个问题困扰着二十四岁的我。虽然我尚未踏入婚姻，但作为一个旁观者，我目睹了身边人们的婚姻生活。几年前，我见过这样一个场景：夫妻在家中激烈争吵，争吵过后，丈夫却平静地为妻子量血压，日复一日，年复一年。压抑、冲突、克制、无奈……这种日复一日的循环给我留下了深刻的印象。我试图通过影像呈现出婚姻中的隐喻性、平凡而真实的画面，以此寻找关于婚姻的答案。以调研、观察与内容判断作为项目起点我曾采访过素未谋面的陌生人，询问她们对婚姻的看法，她们有的是结婚了，有的是离婚了，更有的人选择逃婚。关于婚姻，它们各自有着各自的看法。在与他们接触的同时，我按下了快门，记录了他们当下的状态。",
+    homeTitle: "摄影项目",
     previewImg: "https://img.zcool.cn/community/69954609620804eqx000mg7955.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp",
     content: [
       { type: 'image', url: "https://img.zcool.cn/community/69954609620804eqx000mg7955.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
@@ -53,6 +55,7 @@ const PROJECTS = [
     category: "Documentary / 纪实摄影",
     year: "2024",
     description: "那段时间，我正在准备我的作品集。潮湿的广州夏天，我独自一人抱着借来的徕卡相机走在岛上的湿地里。瞎按着快门，现在回想起来看看当时的还是学生的自己，其实胸中无墨，不过是东施效颦，故作深沉。",
+    homeTitle: "纪实摄影",
     previewImg: "https://img.zcool.cn/community/69992f22829c5nj0xllz3v5479.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp",
     content: [
       { type: 'image', url: "https://img.zcool.cn/community/69992f22829c5nj0xllz3v5479.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
@@ -74,6 +77,7 @@ const PROJECTS = [
     category: "Social Media / 自媒体",
     year: "2023-2024",
     description: "身为一位业界的影像工作者，同时却也是自媒体的创作者。对影像抱有热情，喜欢捕捉美丽的画面，或是，记录那些生命中特别的 moment，这些都是我喜欢记录和创作的理由。",
+    homeTitle: "自媒体频道",
     previewImg: "https://picui.ogmua.cn/s1/2026/02/26/699f21c8ac7d5.webp",
     content: [
       { type: 'image', url: "https://picui.ogmua.cn/s1/2026/02/24/699dbd73e4433.webp" },
@@ -82,7 +86,7 @@ const PROJECTS = [
       { type: 'image', url: "https://img.zcool.cn/community/6999f7d005681uy60x7wwf6653.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'video', url: "https://6swydf55qetcfsax.public.blob.vercel-storage.com/1%E6%9C%8818%E6%97%A5%285%29.MP4" },
       { type: 'image', url: "https://img.zcool.cn/community/699c8fb25ba42mzmb2lz0x1978.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
-      { type: 'video', url: "https://video.zcool.cn/alivod/699c8f803dffbezj4yvxow5491_H264_1_1c9b778c879926.mp4?k=03877715e040eb2df0dc828601a95192&t=699dc7c8" }
+      { type: 'video', url: "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-01.mp4" }
     ]
   },
   {
@@ -91,7 +95,8 @@ const PROJECTS = [
     subtitle: "THE GALAXY",
     category: "Landscape / 风光摄影",
     year: "2023",
-    description: "攝影自出版，图片摄于2022年。。",
+    description: "攝影自出版，图片摄于2022年。",
+    homeTitle: "摄影书",
     previewImg: "https://img.zcool.cn/community/699c90dc7ee0cxlyq8a3un1074.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp",
     content: [
       { type: 'image', url: "https://img.zcool.cn/community/699c90dc7ee0cxlyq8a3un1074.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
@@ -105,8 +110,9 @@ const PROJECTS = [
     subtitle: "STILL PHOTOGRAPHY",
     category: "Commercial / 商业摄影",
     year: "2022-2024",
-    description: "商业平面摄影作品集。",
-    previewImg: "https://img.zcool.cn/community/699c936bd69a6n6w65vrtg4010.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp",
+    description: "商业平面摄影作品",
+    homeTitle: "平面摄影",
+    previewImg: "https://picui.ogmua.cn/s1/2026/02/26/699fe93434d39.webp",
     content: [
       { type: 'image', url: "https://img.zcool.cn/community/699c936bd69a6n6w65vrtg4010.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'image', url: "https://img.zcool.cn/community/699934535ed32qj4e2n30q4721.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
@@ -125,7 +131,8 @@ const PROJECTS = [
     subtitle: "PRODUCT",
     category: "Commercial / 产品摄影",
     year: "2023-2024",
-    description: "静物与产品摄影。",
+    description: "静物与产品摄影",
+    homeTitle: "静物摄影",
     previewImg: "https://img.zcool.cn/community/69994d8451e35ezigo22w07368.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp",
     content: [
        { type: 'image', url: "https://img.zcool.cn/community/6999368dd6fa9x8ta9qb2b4476.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
@@ -146,8 +153,9 @@ const PROJECTS = [
     subtitle: "COMMERCIAL FILMS",
     category: "Commercial / 广告",
     year: "2023-2024",
-    description: "商业广告短片合集。",
-    previewImg: "https://picui.ogmua.cn/s1/2026/02/24/699dbf665215d.webp",
+    description: "商业广告短片合集",
+    homeTitle: "广告短片",
+    previewImg: "https://img.zcool.cn/community/699dc5bac3d7ajmvgfutii5082.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp",
     content: [
       { type: 'image', url: "https://img.zcool.cn/community/6999e7636724bxacv3hdk96360.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'video', url: "https://6swydf55qetcfsax.public.blob.vercel-storage.com/stodownload%20%281%29.mp4" },
@@ -166,22 +174,33 @@ const EXPERIENCES = [
   {
     title: "广州美术学院",
     tags: ["摄影与数码艺术专业", "2020-2024"],
-    description: "在校期间系统学习了当代摄影艺术理论、商业摄影实务以及数码媒介创作。通过跨学科的艺术教育，建立了扎实的视觉审美基础与影像叙事能力，并将其应用于后续的商业实践与品牌传播中。"
+    description: "在校期间系统学习了当代摄影艺术理论、商业摄影实务以及数码媒介创作。通过跨学科的艺术教育，建立了扎实的视觉审美基础与影像叙事能力，并将其应用于后续的商业实践与品牌传播中。",
+    images: [
+      "https://picui.ogmua.cn/s1/2026/02/26/699fe49c62bc2.webp",
+      "https://picui.ogmua.cn/s1/2026/02/26/699fe49c94d9f.webp"
+    ]
   },
   {
     title: "创始人IP视频专员",
     tags: ["奶糖派", "2025.06 – 2025.12"],
-    description: "在此期间负责品牌创始人IP的视觉内容打造，深耕女性成长与美学生活赛道。主导从前期拍摄规划到后期剪辑的全流程执行，并参与社交媒体平台的账号孵化与内容运营。"
+    description: "在此期间负责品牌创始人IP的视觉内容打造，专注女性成长与美学生活赛道。主导从前期拍摄规划到后期剪辑的全流程执行，并参与社交媒体平台的账号孵化与内容运营。",
+    images: []
   },
   {
     title: "潮牌创意视频专员",
     tags: ["Aporro", "2024.07 – 2025.03"],
-    description: "全面负责潮流珠宝品牌 Aporro 的海外视觉内容创作。工作内容涵盖海外市场趋势调研、创意策划及高质量短视频制作，致力于通过影像叙事强化品牌在国际市场 (Instagram) 的视觉表达。"
+    description: "全面负责潮流珠宝品牌 Aporro 的海外视觉内容创作。工作内容涵盖海外市场趋势调研、创意策划及高质量短视频制作，致力于通过影像叙事强化品牌在国际市场 (Instagram) 的视觉表达。",
+    images: [
+      "https://picui.ogmua.cn/s1/2026/02/26/699fe49b49779.webp"
+    ]
   },
   {
     title: "YZ 摄影工作室",
     tags: ["创始人", "商业摄影师", "2022.04 – 2024.06"],
-    description: "创立并运营独立商业摄影工作室，提供影棚租赁及商业拍摄服务。在运营期间负责品牌维护与日常管理，并以制片人、摄影师及剪辑师等多重身份，为“柠季”等知名品牌策划并统筹制作商业宣传片。"
+    description: "创立并运营独立商业摄影工作室，提供影棚租赁及商业拍摄服务。在运营期间负责品牌维护与日常管理，并以制片人、摄影师及剪辑师等多重身份，为“柠季”等知名品牌策划并统筹制作商业宣传片。",
+    images: [
+      "https://picui.ogmua.cn/s1/2026/02/26/699fe49b184a7.webp"
+    ]
   }
 ];
 
@@ -191,6 +210,37 @@ export default function App() {
   const [hoveredProject, setHoveredProject] = useState(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [expandedIndex, setExpandedIndex] = useState(null);
+
+  // 浏览器历史记录管理：支持手机右划返回
+  useEffect(() => {
+    const handlePopState = (event) => {
+      if (activeProject) {
+        // 如果详情页打开，返回时关闭详情页
+        setActiveProject(null);
+        // 阻止默认返回（已经在 popstate 中了，这里通过 pushState 抵消掉后续可能的退出）
+      } else if (view !== 'home') {
+        // 如果在 Work 或 About，返回时回到 Home
+        setView('home');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [activeProject, view]);
+
+  // 监听 activeProject 变化，同步到历史记录
+  useEffect(() => {
+    if (activeProject) {
+      window.history.pushState({ type: 'project', id: activeProject.id }, '');
+    }
+  }, [activeProject]);
+
+  // 监听 view 变化，同步到历史记录
+  useEffect(() => {
+    if (view !== 'home') {
+      window.history.pushState({ type: 'view', id: view }, '');
+    }
+  }, [view]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -216,6 +266,14 @@ export default function App() {
     { id: 'about', label: 'About' }
   ];
 
+  // 统一的动画配置
+  const fadeInUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 30, filter: "blur(10px)" },
+    whileInView: { opacity: 1, y: 0, filter: "blur(0px)" },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.4, ease: "easeOut", delay: delay }
+  });
+
   return (
     <div className={`min-h-screen relative overflow-x-hidden font-sans transition-colors duration-700 ${view === 'about' ? 'bg-[#0a0a0a] text-white' : 'bg-[#f0f0f0] text-black'}`}>
       <style>{`
@@ -223,7 +281,7 @@ export default function App() {
         :root { --font-sans: 'Inter', sans-serif; }
         body { font-family: var(--font-sans); letter-spacing: -0.01em; }
         .serif-font { font-family: "New York", "Georgia", "Songti SC", "SimSun", serif; }
-        .nav-link { letter-spacing: 0.1em; font-size: 11px; font-weight: 600; }
+        .nav-link { letter-spacing: 0.1em; font-size: 11px; font-weight: 700; }
         .sans-zh { font-family: var(--font-sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
         ::-webkit-scrollbar { display: none; }
         .service-tag { 
@@ -240,18 +298,18 @@ export default function App() {
       
       {/* 胶囊导航栏 - 桌面端：顶部；手机端：底部固定 */}
       <nav className="fixed md:top-0 bottom-8 md:bottom-auto left-0 w-full z-[100] flex justify-center py-0 md:py-10 pointer-events-none mt-0">
-        <div className="relative flex items-center pointer-events-auto bg-white/10 backdrop-blur-md md:backdrop-blur-none rounded-full md:bg-transparent p-1 md:p-0 shadow-lg md:shadow-none">
+        <div className="relative flex items-center pointer-events-auto bg-white/10 backdrop-blur-md md:backdrop-blur-none rounded-full md:bg-transparent p-1 md:p-0">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setView(item.id)}
-              className={`relative px-6 py-3 md:px-7 md:py-2 nav-link transition-colors duration-500 z-10 text-[12px] md:text-[11px] ${view === item.id ? 'text-white' : (view === 'about' ? 'text-white/60' : 'text-black/60 md:text-black/40')}`}
+              className={`relative px-6 py-3 md:px-7 md:py-2 nav-link transition-colors duration-500 z-10 text-[12px] md:text-[11px] ${view === item.id ? 'text-white' : 'text-black'}`}
             >
               {item.label}
               {view === item.id && (
                 <motion.div
                   layoutId="nav-pill"
-                  className="absolute inset-0 rounded-full z-[-1] bg-[#333333]"
+                  className="absolute inset-0 rounded-full z-[-1] bg-[#a0a0a0]"
                   transition={{ type: "spring", bounce: 0.15, duration: 0.6 }}
                 />
               )}
@@ -282,46 +340,61 @@ export default function App() {
           >
             {/* 视频区域 - 手机端上移到顶部 */}
             <div className="h-[60vh] md:h-screen w-full flex items-center justify-center pt-24 md:pt-20">
-              <motion.div className="relative w-full md:w-[60vw] aspect-[4/3] z-10 bg-neutral-200 overflow-hidden">
-                <video autoPlay muted loop playsInline className="w-full h-full object-cover">
-                  <source src="https://6swydf55qetcfsax.public.blob.vercel-storage.com/%E7%BD%91%E7%AB%99banner.mp4" />
-                </video>
+              <motion.div 
+                className="relative w-full md:w-[60vw] aspect-[4/3] z-10 bg-neutral-200 overflow-hidden"
+                {...fadeInUp(0)}
+              >
+                <video 
+                  src="https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-01.mp4"
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline 
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
             </div>
 
-            <section className="w-full max-w-7xl px-6 md:px-12 py-8 md:py-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-8">
-              <h2 className="text-[15vw] md:text-[12vw] font-bold tracking-tighter leading-[0.8]">Gun*</h2>
-              <div className="text-right font-sans text-xs md:text-xl leading-tight opacity-80 self-end md:self-auto">
+            <section className="w-full max-w-7xl px-6 md:px-12 py-8 md:py-20 mb-[20vh] md:mb-0 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-8">
+              <motion.h2 
+                className="text-[15vw] md:text-[12vw] font-bold tracking-tighter leading-[0.8]"
+                {...fadeInUp(0.1)}
+              >Gun*</motion.h2>
+              <motion.div 
+                className="text-right font-sans text-xs md:text-xl leading-tight opacity-80 self-end md:self-auto"
+                {...fadeInUp(0.2)}
+              >
                 <p>Guangzhou / Shanghai,</p>
                 <p>soulboyjade@gmail.com</p>
-              </div>
+              </motion.div>
             </section>
 
             <section className="w-full max-w-7xl px-6 md:px-8 pb-20 md:pb-40 text-left mx-auto">
               <div className="flex flex-col gap-6 md:gap-8 items-start">
                 <h3 className="text-3xl md:text-5xl font-bold sans-zh leading-tight"></h3>
-                <p className="text-base md:text-xl opacity-70 leading-relaxed sans-zh font-light max-w-3xl">
+                <motion.p 
+                  className="text-base md:text-xl opacity-70 leading-relaxed sans-zh font-light max-w-3xl"
+                  {...fadeInUp(0.3)}
+                >
                   影像的本质是捕捉那些转瞬即逝的真实感。我试图通过低调而有力的表达，让观众在静默中感受到情感的张力。
-                </p>
+                </motion.p>
               </div>
             </section>
 
             <section className="w-full max-w-6xl px-6 md:px-8 pb-32 md:pb-60 border-t border-black/5 pt-12 md:pt-20">
               <div className="flex flex-col">
-                {PROJECTS.map((project) => (
+                {PROJECTS.map((project, index) => (
                   <motion.div 
                     key={project.id}
                     className="group border-b border-black/5 py-6 md:py-10 cursor-pointer relative transition-colors duration-500 hover:bg-black/[0.03]"
                     onClick={() => setActiveProject(project)}
                     onMouseEnter={() => setHoveredProject(project)}
                     onMouseLeave={() => setHoveredProject(null)}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    {...fadeInUp(index * 0.1)}
                   >
                     <div className="flex flex-col items-center justify-center text-center">
                       <h2 className="text-2xl md:text-4xl font-bold sans-zh tracking-tight transition-all duration-500 group-hover:italic">
-                        {project.title}
+                        {project.homeTitle || project.title}
                       </h2>
                     </div>
                   </motion.div>
@@ -336,7 +409,7 @@ export default function App() {
                   animate={{ opacity: 1, scale: 1, x: 40 }}
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                  className="fixed pointer-events-none z-[500] w-64 aspect-[4/5] bg-white overflow-hidden shadow-2xl"
+                  className="hidden md:block fixed pointer-events-none z-[500] w-64 aspect-[4/5] bg-white overflow-hidden shadow-2xl"
                   style={{ top: mousePos.y - 120, left: mousePos.x }}
                 >
                   <img src={hoveredProject.previewImg} className="w-full h-full object-cover" alt="Preview" />
@@ -356,18 +429,25 @@ export default function App() {
             className="min-h-screen pt-24 md:pt-48 pb-32 md:pb-60 px-2 md:px-8"
           >
             <div className="max-w-[1400px] mx-auto mb-8 md:mb-20 text-left px-4 md:px-0">
-              <h2 className="text-4xl md:text-7xl font-light tracking-tighter mb-4">Selected Work</h2>
-              <p className="nav-link opacity-40 uppercase">Visual Storytelling</p>
+              <h2 className="text-4xl md:text-7xl font-light tracking-tighter mb-2">Selected Work</h2>
+              <p className="text-[11px] tracking-tighter opacity-40 uppercase font-light">Visual Storytelling</p>
             </div>
 
             <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2">
-              {PROJECTS.map((project) => (
-                <motion.div key={project.id} className="group cursor-pointer relative" onClick={() => setActiveProject(project)}>
+              {PROJECTS.map((project, index) => (
+                <motion.div 
+                  key={project.id} 
+                  className="group cursor-pointer relative" 
+                  onClick={() => setActiveProject(project)}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
+                >
                   <div className="aspect-[16/10] overflow-hidden bg-neutral-200 relative transition-all duration-700 ease-out">
                     <img src={project.previewImg} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt={project.title} />
-                    <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-[2px] shadow-sm transition-all duration-400 group-hover:bg-white flex items-baseline gap-2 z-10 pointer-events-none">
-                      <h3 className="text-[12px] font-bold sans-zh text-black m-0 leading-none tracking-tight">{project.title}</h3>
-                      <span className="text-[8px] opacity-40 text-black leading-none uppercase tracking-tighter">{project.subtitle}</span>
+                    <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-lg px-4 py-2 rounded-none shadow-sm transition-all duration-400 group-hover:bg-white/30 z-10 pointer-events-none border border-white/30">
+                      <h3 className="text-[13px] font-medium sans-zh text-black m-0 leading-none tracking-tight">{project.title}</h3>
                     </div>
                   </div>
                 </motion.div>
@@ -387,49 +467,75 @@ export default function App() {
           >
             <div className="flex flex-col gap-24 md:gap-56">
               <section className="relative w-full h-screen overflow-hidden">
-                <div className="absolute inset-0">
+                <motion.div 
+                  className="absolute inset-0"
+                  {...fadeInUp(0)}
+                >
                   <img 
                     src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/24/699c872569887.webp" 
                     alt="Portrait" 
                     className="w-full h-full object-cover" 
                   />
-                </div>
+                  {/* 底部渐变遮罩 - 优化手机端文字可读性与过渡 */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-100 md:opacity-60"></div>
+                </motion.div>
                 <div className="relative h-full flex flex-col md:flex-row items-center px-6 md:px-20 max-w-7xl mx-auto pt-24 md:pt-0">
                   <div className="w-full md:w-auto flex flex-col gap-4 md:gap-6 max-w-2xl mt-auto md:mt-0 pb-12 md:pb-0 z-10">
-                    <p className="text-base md:text-2xl leading-snug sans-zh font-light text-white">
+                    <motion.p 
+                      className="text-base md:text-2xl leading-snug sans-zh font-light text-white"
+                      {...fadeInUp(0.2)}
+                    >
                       梁楚君<br/>
                       摄影师，影像创作者。
-                    </p>
-                    <p className="text-xs md:text-base opacity-60 sans-zh leading-relaxed text-white">
-                      目前常住于广州及上海<br/>从事影像叙事、品牌视觉策划及艺术摄影研究。
-                    </p>
+                    </motion.p>
+                    <motion.p 
+                      className="text-xs md:text-base opacity-60 sans-zh leading-relaxed text-white"
+                      {...fadeInUp(0.3)}
+                    >
+                      目前常住于广州<br/>从事影像叙事、品牌视觉策划及艺术摄影研究。
+                    </motion.p>
                   </div>
                 </div>
               </section>
 
               <section className="px-6 md:px-8 max-w-5xl mx-auto w-full">
-                <h3 className="text-lg md:text-2xl font-light sans-zh leading-tight text-white mt-12 md:mt-0">
+                <motion.h3 
+                  className="text-lg md:text-2xl font-light sans-zh leading-tight text-white mt-12 md:mt-0"
+                  {...fadeInUp(0.2)}
+                >
                   我在视觉创作领域拥有多维度的实践经验，<br />
                   从独立工作室的运作，到品牌的海外视觉营销，再到社交媒体IP孵化，<br />
                   致力于通过视觉内容捕捉品牌的核心美感。
-                </h3>
+                </motion.h3>
               </section>
 
               {/* 履历部分 */}
               <section className="flex flex-col px-6 md:px-8 max-w-5xl mx-auto w-full">
-                <span className="nav-link text-white/30 uppercase tracking-[0.2em] mb-8 md:mb-12">Experience / 履历</span>
+                <motion.span 
+                  className="nav-link text-white/30 uppercase tracking-[0.2em] mb-8 md:mb-12"
+                  {...fadeInUp(0.1)}
+                >Experience / 履历</motion.span>
                 <div className="flex flex-col">
                   {EXPERIENCES.map((item, index) => (
-                    <div 
+                    <motion.div 
                       key={index} 
                       className="group border-t border-white/20 py-8 md:py-10 cursor-pointer first:border-t-0"
                       onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                      {...fadeInUp(index * 0.1 + 0.2)}
                     >
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-8">
                         {/* 字体修改：使用 font-light (细体) + sans-zh (黑体家族) */}
-                        <h4 className="text-lg md:text-2xl font-light sans-zh group-hover:italic transition-all duration-500 text-white/90">
-                          {item.title}
-                        </h4>
+                        <div className="flex items-center gap-4">
+                          <h4 className="text-lg md:text-2xl font-light sans-zh group-hover:italic transition-all duration-500 text-white/90">
+                            {item.title}
+                          </h4>
+                          <motion.div
+                            animate={{ rotate: expandedIndex === index ? 180 : 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <ChevronDown className="w-5 h-5 text-white/40 group-hover:text-white/80 transition-colors" />
+                          </motion.div>
+                        </div>
                         <div className="flex flex-wrap gap-2 md:justify-end">
                           {item.tags.map((tag, tIdx) => (
                             <div key={tIdx} className="service-tag group-hover:border-white/60 group-hover:text-white transition-all">
@@ -447,15 +553,24 @@ export default function App() {
                             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                             className="overflow-hidden"
                           >
-                            <div className="pt-8 max-w-3xl">
+                            <div className="pt-8 max-w-3xl flex flex-col gap-8">
                               <p className="text-sm md:text-base opacity-50 leading-relaxed sans-zh font-light">
                                 {item.description}
                               </p>
+                              {item.images && item.images.length > 0 && (
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                  {item.images.map((img, imgIdx) => (
+                                    <div key={imgIdx} className="bg-white/5 overflow-hidden">
+                                      <img src={img} alt="" className="w-full h-auto opacity-80 hover:opacity-100 transition-opacity" />
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
                             </div>
                           </motion.div>
                         )}
                       </AnimatePresence>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </section>
@@ -487,7 +602,15 @@ export default function App() {
                 {activeProject.content.map((item, i) => (
                   item.type === 'video' ? (
                     <div key={i} className="w-full md:w-[90%] aspect-video bg-black">
-                      <video src={item.url} controls className="w-full h-full object-cover" />
+                      <video 
+                        src={item.url} 
+                        autoPlay 
+                        muted 
+                        loop 
+                        playsInline 
+                        controls 
+                        className="w-full h-full object-cover" 
+                      />
                     </div>
                   ) : (
                     <img key={i} src={item.url} alt="" className="w-full h-auto md:w-[90%]" />
@@ -506,7 +629,7 @@ export default function App() {
       <div className={`w-full p-6 md:p-12 flex justify-between items-end relative z-50 ${view === 'about' ? 'bg-[#0a0a0a] text-white border-t border-white/5' : 'border-t border-black/5'}`}>
         <h2 className="text-[16px] md:text-[18px] font-black tracking-widest sans-zh">梁 楚 君</h2>
         <div className="text-right font-sans text-[10px] md:text-[12px] leading-tight opacity-40">
-          <p>Guangzhou / Shanghai,</p>
+          <p>Guangzhou,</p>
           <p>soulboyjade@gmail.com</p>
         </div>
       </div>
