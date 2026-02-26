@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ChevronDown } from 'lucide-react';
 
+// Banner 视频列表配置
+const BANNER_VIDEOS = [
+  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-02.MP4",
+  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-01.mp4", // 示例：重复用于演示切换效果
+  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-01.mp4"  // 示例：重复用于演示切换效果
+];
+
 // 项目数据配置
 const PROJECTS = [
   {
@@ -210,6 +217,7 @@ export default function App() {
   const [hoveredProject, setHoveredProject] = useState(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
 
   // 浏览器历史记录管理：支持手机右划返回
   useEffect(() => {
@@ -341,17 +349,44 @@ export default function App() {
             {/* 视频区域 - 手机端上移到顶部 */}
             <div className="h-[60vh] md:h-screen w-full flex items-center justify-center pt-24 md:pt-20">
               <motion.div 
-                className="relative w-full md:w-[60vw] aspect-[4/3] z-10 bg-neutral-200 overflow-hidden"
+                className="relative w-full md:w-[60vw] aspect-[4/3] z-10 bg-neutral-200 overflow-hidden cursor-pointer group"
                 {...fadeInUp(0)}
+                onClick={() => setCurrentBannerIndex((prev) => (prev + 1) % BANNER_VIDEOS.length)}
               >
-                <video 
-                  src="https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-01.mp4"
-                  autoPlay 
-                  muted 
-                  loop 
-                  playsInline 
-                  className="w-full h-full object-cover"
-                />
+                <AnimatePresence>
+                  <motion.video 
+                    key={currentBannerIndex}
+                    src={BANNER_VIDEOS[currentBannerIndex]}
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline 
+                    crossOrigin="anonymous"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
+                  />
+                </AnimatePresence>
+
+                {/* 简约圆点指示器 */}
+                <div className="absolute bottom-6 left-0 w-full flex justify-center gap-3 z-20 pointer-events-none">
+                  {BANNER_VIDEOS.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentBannerIndex(idx);
+                      }}
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-500 pointer-events-auto shadow-sm ${
+                        idx === currentBannerIndex 
+                          ? 'bg-white scale-125 opacity-100' 
+                          : 'bg-white opacity-40 hover:opacity-80 hover:scale-110'
+                      }`}
+                    />
+                  ))}
+                </div>
               </motion.div>
             </div>
 
