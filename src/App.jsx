@@ -4,9 +4,9 @@ import { ArrowLeft, ChevronDown } from 'lucide-react';
 
 // Banner 视频列表配置
 const BANNER_VIDEOS = [
-  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-01.mp4",
-  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-02.mp4",
-  "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-03.mp4"
+  "https://myportfolio.oss-cn-shanghai.aliyuncs.com/video-banner-01.mp4",
+  "https://myportfolio.oss-cn-shanghai.aliyuncs.com/video-banner-02.mp4",
+  "https://myportfolio.oss-cn-shanghai.aliyuncs.com/video-banner-03.mp4"
 ];
 
 // 项目数据配置
@@ -27,7 +27,7 @@ const PROJECTS = [
     homeTitle: "纪录片",
     previewImg: "https://picui.ogmua.cn/s1/2026/02/25/699f113324c36.webp",
     content: [
-      { type: 'video', url: "https://6swydf55qetcfsax.public.blob.vercel-storage.com/%E9%95%BF%E7%89%8720260224.m4v" },
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/2-video.m4v" },
       { type: 'image', url: "https://img.zcool.cn/community/699549cd7a03bqoh5efefb7037.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'image', url: "https://img.zcool.cn/community/699549cd53175ri9kr55a61292.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'image', url: "https://img.zcool.cn/community/699549ae0e67dr2s4cn7v85967.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
@@ -89,11 +89,11 @@ const PROJECTS = [
     content: [
       { type: 'image', url: "https://picui.ogmua.cn/s1/2026/02/24/699dbd73e4433.webp" },
       { type: 'image', url: "https://img.zcool.cn/community/69949dc1a7cbf1xwuo8mxf3001.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
-      { type: 'video', url: "https://xebbj574h837wcry.public.blob.vercel-storage.com/%E6%B8%85%E8%BF%88%E5%B0%8F%E7%BA%A2%E4%B9%A6%E7%89%88%E6%9C%AC.mp4" },
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/2-video.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/6999f7d005681uy60x7wwf6653.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
-      { type: 'video', url: "https://6swydf55qetcfsax.public.blob.vercel-storage.com/1%E6%9C%8818%E6%97%A5%285%29.MP4" },
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/wxyy2-video.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/699c8fb25ba42mzmb2lz0x1978.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
-      { type: 'video', url: "https://dcczgdivqxhvskurktet.supabase.co/storage/v1/object/public/my%20-portfolio/works-name/video-banner-01.mp4" }
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/4-video.mp4" }
     ]
   },
   {
@@ -165,13 +165,13 @@ const PROJECTS = [
     previewImg: "https://img.zcool.cn/community/699dc5bac3d7ajmvgfutii5082.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp",
     content: [
       { type: 'image', url: "https://img.zcool.cn/community/6999e7636724bxacv3hdk96360.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
-      { type: 'video', url: "https://6swydf55qetcfsax.public.blob.vercel-storage.com/stodownload%20%281%29.mp4" },
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/1-video.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/699950c4ec701rg5jwltbe3040.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'video', url: "https://xebbj574h837wcry.public.blob.vercel-storage.com/%E5%BE%AE%E5%9E%8B%E5%85%BB%E8%82%B2%E7%BE%A4%E8%90%BD%E5%8E%8B%E7%BC%A9%E7%89%88.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/6999544a09770mkz6o3d4t7061.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
-      { type: 'video', url: "https://6swydf55qetcfsax.public.blob.vercel-storage.com/%E8%BD%AC%E6%A4%85.mp4" },
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/3-video.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/699dc5bac3d7ajmvgfutii5082.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
-      { type: 'video', url: "https://xebbj574h837wcry.public.blob.vercel-storage.com/aporro%E5%93%81%E7%89%8C%E5%AE%A3%E4%BC%A0%E7%89%87.mp4" }
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/4.mp4" }
     ]
   }
 ];
