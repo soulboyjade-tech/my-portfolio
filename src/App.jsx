@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ChevronDown } from 'lucide-react';
+import { ArrowLeft, ChevronDown, Volume2, VolumeX } from 'lucide-react';
 
 // Banner 视频列表配置
 const BANNER_VIDEOS = [
@@ -27,7 +27,7 @@ const PROJECTS = [
     homeTitle: "纪录片",
     previewImg: "https://picui.ogmua.cn/s1/2026/02/25/699f113324c36.webp",
     content: [
-      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/2-video.m4v" },
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/dusk-dance-hall.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/699549cd7a03bqoh5efefb7037.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'image', url: "https://img.zcool.cn/community/699549cd53175ri9kr55a61292.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'image', url: "https://img.zcool.cn/community/699549ae0e67dr2s4cn7v85967.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
@@ -91,7 +91,7 @@ const PROJECTS = [
       { type: 'image', url: "https://img.zcool.cn/community/69949dc1a7cbf1xwuo8mxf3001.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/2-video.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/6999f7d005681uy60x7wwf6653.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
-      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/wxyy2-video.mp4" },
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/3-video.MP4" },
       { type: 'image', url: "https://img.zcool.cn/community/699c8fb25ba42mzmb2lz0x1978.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/4-video.mp4" }
     ]
@@ -167,7 +167,7 @@ const PROJECTS = [
       { type: 'image', url: "https://img.zcool.cn/community/6999e7636724bxacv3hdk96360.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/1-video.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/699950c4ec701rg5jwltbe3040.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
-      { type: 'video', url: "https://xebbj574h837wcry.public.blob.vercel-storage.com/%E5%BE%AE%E5%9E%8B%E5%85%BB%E8%82%B2%E7%BE%A4%E8%90%BD%E5%8E%8B%E7%BC%A9%E7%89%88.mp4" },
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/wxyy2-video.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/6999544a09770mkz6o3d4t7061.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/3-video.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/699dc5bac3d7ajmvgfutii5082.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
@@ -218,6 +218,7 @@ export default function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
+  const [isBannerMuted, setIsBannerMuted] = useState(true);
 
   // 浏览器历史记录管理：支持手机右划返回
   useEffect(() => {
@@ -358,7 +359,7 @@ export default function App() {
                     key={currentBannerIndex}
                     src={BANNER_VIDEOS[currentBannerIndex]}
                     autoPlay 
-                    muted 
+                    muted={isBannerMuted}
                     loop 
                     playsInline 
                     preload="auto"
@@ -377,6 +378,17 @@ export default function App() {
                   preload="auto"
                   className="hidden"
                 />
+
+                {/* 音量控制按钮 */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsBannerMuted(!isBannerMuted);
+                  }}
+                  className="absolute bottom-6 right-6 z-20 p-2 bg-white/10 backdrop-blur-md rounded-full text-white/80 hover:bg-white/20 hover:text-white transition-all duration-300 pointer-events-auto"
+                >
+                  {isBannerMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                </button>
 
                 {/* 简约圆点指示器 */}
                 <div className="absolute bottom-6 left-0 w-full flex justify-center gap-3 z-20 pointer-events-none">
