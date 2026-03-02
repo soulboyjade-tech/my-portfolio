@@ -211,6 +211,36 @@ const EXPERIENCES = [
   }
 ];
 
+// 实验室/未完成作品数据
+const LABS = [
+  {
+    id: "l01",
+    title: "实验项目一",
+    subtitle: "EXPERIMENTAL I",
+    category: "Experiment / 实验",
+    year: "2024",
+    description: "这是一个正在进行中的视觉实验项目，探索光影与空间的互动关系。",
+    homeTitle: "光影实验",
+    previewImg: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop",
+    content: [
+      { type: 'image', url: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop" }
+    ]
+  },
+  {
+    id: "l02",
+    title: "未完成的诗",
+    subtitle: "UNFINISHED POEM",
+    category: "Personal / 个人",
+    year: "2024",
+    description: "记录生活中的碎片化灵感，尚在整理与创作中。",
+    homeTitle: "碎片",
+    previewImg: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop",
+    content: [
+      { type: 'image', url: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop" }
+    ]
+  }
+];
+
 export default function App() {
   const [activeProject, setActiveProject] = useState(null);
   const [view, setView] = useState('home'); 
@@ -272,6 +302,7 @@ export default function App() {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'work', label: 'Work' },
+    { id: 'lab', label: 'Lab' },
     { id: 'about', label: 'About' }
   ];
 
@@ -503,6 +534,43 @@ export default function App() {
                     <img src={project.previewImg} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt={project.title} />
                     <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-lg px-4 py-2 rounded-none shadow-sm transition-all duration-400 group-hover:bg-white/30 z-10 pointer-events-none border border-white/30">
                       <h3 className="text-[13px] font-medium sans-zh text-black m-0 leading-none tracking-tight">{project.title}</h3>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* --- 实验室 VIEW (新增) --- */}
+        {view === 'lab' && (
+          <motion.div
+            key="lab"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="min-h-screen pt-24 md:pt-48 pb-32 md:pb-60 px-2 md:px-8"
+          >
+            <div className="max-w-[1400px] mx-auto mb-8 md:mb-20 text-left px-4 md:px-0">
+              <h2 className="text-4xl md:text-7xl font-light tracking-tighter mb-2">Lab & Experiments</h2>
+              <p className="text-[11px] tracking-tighter opacity-40 uppercase font-light">Unfinished / Experimental</p>
+            </div>
+
+            <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2">
+              {LABS.map((item, index) => (
+                <motion.div 
+                  key={item.id} 
+                  className="group cursor-pointer relative" 
+                  onClick={() => setActiveProject(item)}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
+                >
+                  <div className="aspect-[16/10] overflow-hidden bg-neutral-200 relative transition-all duration-700 ease-out">
+                    <img src={item.previewImg} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale group-hover:grayscale-0" alt={item.title} />
+                    <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-lg px-4 py-2 rounded-none shadow-sm transition-all duration-400 group-hover:bg-white/30 z-10 pointer-events-none border border-white/30">
+                      <h3 className="text-[13px] font-medium sans-zh text-black m-0 leading-none tracking-tight">{item.title}</h3>
                     </div>
                   </div>
                 </motion.div>
