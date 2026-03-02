@@ -4,7 +4,6 @@ import { ArrowLeft, ChevronDown, Volume2, VolumeX } from 'lucide-react';
 
 // Banner 视频列表配置
 const BANNER_VIDEOS = [
-  "https://myportfolio.oss-cn-shanghai.aliyuncs.com/video-banner-01.mp4",
   "https://myportfolio.oss-cn-shanghai.aliyuncs.com/video-banner-02.mp4",
   "https://myportfolio.oss-cn-shanghai.aliyuncs.com/video-banner-03.mp4"
 ];
@@ -229,7 +228,48 @@ const LABS = [
   }
 ];
 
+// 开场动画组件
+const OpeningScreen = ({ onComplete }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1.5, ease: "easeInOut" }}
+      onAnimationComplete={() => {
+        // 确保动画完全结束后再销毁
+      }}
+    >
+      <video
+        src={isMobile 
+          ? "https://myportfolio.oss-cn-shanghai.aliyuncs.com/phone-opening-motion.mp4" 
+          : "https://myportfolio.oss-cn-shanghai.aliyuncs.com/web-opening-motion.mp4"
+        }
+        autoPlay
+        muted
+        playsInline
+        className="w-full h-full object-cover"
+        onEnded={onComplete}
+      />
+    </motion.div>
+  );
+};
+
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [activeProject, setActiveProject] = useState(null);
   const [view, setView] = useState('home'); 
   const [hoveredProject, setHoveredProject] = useState(null);
@@ -341,6 +381,12 @@ export default function App() {
         }
       `}</style>
       
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <OpeningScreen onComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
+
       <GrainOverlay />
       
       {/* 胶囊导航栏 - 桌面端：顶部；手机端：底部固定 */}
@@ -731,16 +777,28 @@ export default function App() {
               <div className="flex flex-col items-center gap-12 md:gap-40 mb-20 md:mb-40">
                 {activeProject.content.map((item, i) => (
                   item.type === 'video' ? (
-                    <div key={i} className="w-[85%] md:w-[50%] aspect-[9/16] md:aspect-video bg-black">
+                    <div key={i} className="w-[85%] md:w-[70%] bg-black">
                       <video 
                         src={item.url} 
                         playsInline 
                         controls 
-                        className="w-full h-full object-cover" 
+                        className="w-full h-auto" 
                       />
                     </div>
                   ) : (
-                    <img key={i} src={item.url} alt="" className="w-[85%] h-auto md:w-[50%]" />
+                    <img 
+                      key={i} 
+                      src={item.url} 
+                      alt="" 
+                      className="w-[85%] h-auto md:w-[50%]"
+                      onLoad={(e) => {
+                        // 如果图片是横图（宽 > 高），则放大显示宽度
+                        if (e.target.naturalWidth > e.target.naturalHeight) {
+                          e.target.classList.remove('md:w-[50%]');
+                          e.target.classList.add('md:w-[70%]');
+                        }
+                      }}
+                    />
                   )
                 ))}
               </div>
