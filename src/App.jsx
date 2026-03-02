@@ -712,7 +712,7 @@ export default function App() {
               <div className="flex flex-col items-center gap-12 md:gap-40 mb-20 md:mb-40">
                 {activeProject.content.map((item, i) => (
                   item.type === 'video' ? (
-                    <div key={i} className="w-full md:w-[70%] aspect-video bg-black">
+                    <div key={i} className="w-[85%] md:w-[50%] aspect-[9/16] md:aspect-video bg-black">
                       <video 
                         src={item.url} 
                         playsInline 
@@ -721,7 +721,7 @@ export default function App() {
                       />
                     </div>
                   ) : (
-                    <img key={i} src={item.url} alt="" className="w-full h-auto md:w-[70%]" />
+                    <img key={i} src={item.url} alt="" className="w-[85%] h-auto md:w-[50%]" />
                   )
                 ))}
               </div>
