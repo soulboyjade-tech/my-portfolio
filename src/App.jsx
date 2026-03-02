@@ -215,16 +215,16 @@ const EXPERIENCES = [
 const LABS = [
   {
     id: "l01",
-    title: "实验项目一",
+    title: "平面模特视频生成",
     subtitle: "EXPERIMENTAL I",
     category: "Experiment / 实验",
     year: "2024",
-    description: "这是一个正在进行中的视觉实验项目，探索光影与空间的互动关系。",
+    description: "一个小测试：利用aigc工具生成时装模特展示视频",
     homeTitle: "光影实验",
-    previewImg: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop",
+    previewImg: "https://picui.ogmua.cn/s1/2026/03/02/69a55bc7400b8.webp",
     content: [
-      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/video-banner-01.mp4" },
-      { type: 'image', url: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop" }
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/lab-aigctest01.mp4" },
+      { type: 'image', url: "https://picui.ogmua.cn/s1/2026/03/02/69a55b6acf428.webp" }
     ]
   }
 ];
@@ -556,7 +556,7 @@ export default function App() {
                   transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
                 >
                   <div className="aspect-[16/10] overflow-hidden bg-neutral-200 relative transition-all duration-700 ease-out">
-                    <img src={item.previewImg} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale group-hover:grayscale-0" alt={item.title} />
+                    <img src={item.previewImg} className="w-full h-full object-cover object-[center_25%] transition-transform duration-1000 group-hover:scale-105 grayscale group-hover:grayscale-0" alt={item.title} />
                     <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-lg px-4 py-2 rounded-none shadow-sm transition-all duration-400 group-hover:bg-white/30 z-10 pointer-events-none border border-white/30">
                       <h3 className="text-[13px] font-medium sans-zh text-black m-0 leading-none tracking-tight">{item.title}</h3>
                     </div>
@@ -712,7 +712,7 @@ export default function App() {
               <div className="flex flex-col items-center gap-12 md:gap-40 mb-20 md:mb-40">
                 {activeProject.content.map((item, i) => (
                   item.type === 'video' ? (
-                    <div key={i} className="w-full md:w-[90%] aspect-video bg-black">
+                    <div key={i} className="w-full md:w-[70%] aspect-video bg-black">
                       <video 
                         src={item.url} 
                         playsInline 
@@ -721,7 +721,7 @@ export default function App() {
                       />
                     </div>
                   ) : (
-                    <img key={i} src={item.url} alt="" className="w-full h-auto md:w-[90%]" />
+                    <img key={i} src={item.url} alt="" className="w-full h-auto md:w-[70%]" />
                   )
                 ))}
               </div>
