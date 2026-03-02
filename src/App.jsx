@@ -238,36 +238,59 @@ export default function App() {
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [isBannerMuted, setIsBannerMuted] = useState(true);
 
-  // 浏览器历史记录管理：支持手机右划返回
+  // --- 路由系统 (Hash-based Routing) ---
+  
+  // 1. 初始化及监听 Hash 变化
   useEffect(() => {
-    const handlePopState = (event) => {
-      if (activeProject) {
-        // 如果详情页打开，返回时关闭详情页
-        setActiveProject(null);
-        // 阻止默认返回（已经在 popstate 中了，这里通过 pushState 抵消掉后续可能的退出）
-      } else if (view !== 'home') {
-        // 如果在 Work 或 About，返回时回到 Home
+    const handleHashChange = () => {
+      // 移除开头和结尾的斜杠
+      const hash = window.location.hash.replace(/^#\/?/, '').replace(/\/$/, '');
+      
+      if (!hash || hash === 'home') {
         setView('home');
+        setActiveProject(null);
+      } else if (['work', 'lab', 'about'].includes(hash)) {
+        setView(hash);
+        setActiveProject(null);
+      } else if (hash.startsWith('project/')) {
+        const id = hash.split('/')[1];
+        const project = [...PROJECTS, ...LABS].find(p => p.id === id);
+        if (project) {
+          // 如果进入项目详情，确保背后的列表视图也是正确的
+          // 暂时简单处理：如果不确定来源，默认回到 work
+          setActiveProject(project);
+        } else {
+          window.location.hash = '#/home';
+        }
       }
     };
 
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, [activeProject, view]);
+    // 初始加载时执行一次
+    handleHashChange();
 
-  // 监听 activeProject 变化，同步到历史记录
-  useEffect(() => {
-    if (activeProject) {
-      window.history.pushState({ type: 'project', id: activeProject.id }, '');
-    }
-  }, [activeProject]);
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
-  // 监听 view 变化，同步到历史记录
+  // 2. 封装状态切换函数（通过修改 Hash 来驱动状态）
+  const navigateTo = (newView) => {
+    window.location.hash = `#/${newView}`;
+  };
+
+  const openProject = (project) => {
+    window.location.hash = `#/project/${project.id}`;
+  };
+
+  const closeProject = () => {
+    // 关闭详情页时，根据项目类型回到对应的列表
+    const isLab = LABS.some(p => p.id === activeProject?.id);
+    window.location.hash = isLab ? '#/lab' : '#/work';
+  };
+
+  // 3. 页面滚动同步
   useEffect(() => {
-    if (view !== 'home') {
-      window.history.pushState({ type: 'view', id: view }, '');
-    }
-  }, [view]);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [view, activeProject]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -276,10 +299,6 @@ export default function App() {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [view]);
 
   const GrainOverlay = () => (
     <div className="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-multiply">
@@ -330,7 +349,7 @@ export default function App() {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => setView(item.id)}
+              onClick={() => navigateTo(item.id)}
               className={`relative px-6 py-3 md:px-7 md:py-2 nav-link transition-colors duration-500 z-10 text-[12px] md:text-[11px] ${view === item.id ? 'text-white' : 'text-black'}`}
             >
               {item.label}
@@ -349,7 +368,7 @@ export default function App() {
       {/* 顶部标识 */}
       <div className="fixed top-0 left-0 w-full p-6 md:p-12 pointer-events-none z-[90] flex justify-between items-start">
         <div className="pointer-events-auto">
-          <h1 className="text-[16px] md:text-[18px] font-black tracking-tighter leading-none cursor-pointer" onClick={() => setView('home')}>
+          <h1 className="text-[16px] md:text-[18px] font-black tracking-tighter leading-none cursor-pointer" onClick={() => navigateTo('home')}>
             Liang Chujun
           </h1>
         </div>
@@ -461,7 +480,7 @@ export default function App() {
                   <motion.div 
                     key={project.id}
                     className="group border-b border-black/5 py-6 md:py-10 cursor-pointer relative transition-colors duration-500 hover:bg-black/[0.03]"
-                    onClick={() => setActiveProject(project)}
+                    onClick={() => openProject(project)}
                     onMouseEnter={() => setHoveredProject(project)}
                     onMouseLeave={() => setHoveredProject(null)}
                     {...fadeInUp(index * 0.1)}
@@ -512,7 +531,7 @@ export default function App() {
                 <motion.div 
                   key={project.id} 
                   className="group cursor-pointer relative" 
-                  onClick={() => setActiveProject(project)}
+                  onClick={() => openProject(project)}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -549,7 +568,7 @@ export default function App() {
                 <motion.div 
                   key={item.id} 
                   className="group cursor-pointer relative" 
-                  onClick={() => setActiveProject(item)}
+                  onClick={() => openProject(item)}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -700,7 +719,7 @@ export default function App() {
             className="fixed inset-0 bg-[#f9f9f9] text-black z-[2000] overflow-y-auto"
           >
             <nav className="p-6 md:p-12 flex justify-between items-center sticky top-0 bg-[#f9f9f9]/80 backdrop-blur-md z-[2100]">
-              <button onClick={() => setActiveProject(null)} className="flex items-center gap-2 group font-black text-[10px] md:text-[11px] tracking-widest uppercase text-black">
+              <button onClick={() => closeProject()} className="flex items-center gap-2 group font-black text-[10px] md:text-[11px] tracking-widest uppercase text-black">
                 <ArrowLeft size={14} className="md:w-4 md:h-4" /> <span>Back</span>
               </button>
             </nav>
@@ -727,7 +746,7 @@ export default function App() {
               </div>
             </div>
             <footer className="py-32 text-center">
-              <button onClick={() => setActiveProject(null)} className="nav-link text-black hover:opacity-40 transition-opacity underline">Close Case</button>
+              <button onClick={() => closeProject()} className="nav-link text-black hover:opacity-40 transition-opacity underline">Close Case</button>
             </footer>
           </motion.div>
         )}
