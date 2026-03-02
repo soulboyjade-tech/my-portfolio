@@ -223,20 +223,8 @@ const LABS = [
     homeTitle: "光影实验",
     previewImg: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop",
     content: [
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/video-banner-01.mp4" },
       { type: 'image', url: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop" }
-    ]
-  },
-  {
-    id: "l02",
-    title: "未完成的诗",
-    subtitle: "UNFINISHED POEM",
-    category: "Personal / 个人",
-    year: "2024",
-    description: "记录生活中的碎片化灵感，尚在整理与创作中。",
-    homeTitle: "碎片",
-    previewImg: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop",
-    content: [
-      { type: 'image', url: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop" }
     ]
   }
 ];
