@@ -790,7 +790,7 @@ export default function App() {
                       key={i} 
                       src={item.url} 
                       alt="" 
-                      className="w-[85%] h-auto md:w-[50%]"
+                      className="w-[98%] h-auto md:w-[50%]"
                       onLoad={(e) => {
                         // 如果图片是横图（宽 > 高），则放大显示宽度
                         if (e.target.naturalWidth > e.target.naturalHeight) {
