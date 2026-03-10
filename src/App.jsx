@@ -24,7 +24,7 @@ const PROJECTS = [
 
 在 2022 年年底，我主要不间断跟拍刘叔两个月，试图通过刘叔来了解这一群体，探讨关于孤独，老年社交，和公共空间的社会议题。`,
     homeTitle: "纪录片",
-    previewImg: "https://picui.ogmua.cn/s1/2026/02/25/699f113324c36.webp",
+    previewImg: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%201%20%E8%90%BD%E6%97%A5%E8%88%9E%E5%8E%85/%E8%90%BD%E6%97%A5%E8%88%9E%E5%8E%85preview.jpg",
     content: [
       { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/dusk-dance-hall.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/699549cd7a03bqoh5efefb7037.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
@@ -84,13 +84,13 @@ const PROJECTS = [
     year: "2023-2024",
     description: "身为一位业界的影像工作者，同时却也是自媒体的创作者。对影像抱有热情，喜欢捕捉美丽的画面，或是，记录那些生命中特别的 moment，这些都是我喜欢记录和创作的理由。",
     homeTitle: "自媒体频道",
-    previewImg: "https://picui.ogmua.cn/s1/2026/02/26/699f21c8ac7d5.webp",
+    previewImg: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%205%20%E8%87%AA%E5%AA%92%E4%BD%93%E6%8E%A2%E7%B4%A2/preview%20%E6%8B%B7%E8%B4%9D.jpg",
     content: [
-      { type: 'image', url: "https://picui.ogmua.cn/s1/2026/02/24/699dbd73e4433.webp" },
+      { type: 'image', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%205%20%E8%87%AA%E5%AA%92%E4%BD%93%E6%8E%A2%E7%B4%A2/preview%20%E6%8B%B7%E8%B4%9D.jpg" },
       { type: 'image', url: "https://img.zcool.cn/community/69949dc1a7cbf1xwuo8mxf3001.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/2-video.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/6999f7d005681uy60x7wwf6653.jpg?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
-      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/3-video.MP4" },
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/3-video.mp4" },
       { type: 'image', url: "https://img.zcool.cn/community/699c8fb25ba42mzmb2lz0x1978.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/4-video.mp4" }
     ]
@@ -118,7 +118,7 @@ const PROJECTS = [
     year: "2022-2024",
     description: "商业平面摄影作品",
     homeTitle: "平面摄影",
-    previewImg: "https://picui.ogmua.cn/s1/2026/02/26/699fe93434d39.webp",
+    previewImg: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%207%20%E5%B9%B3%E9%9D%A2%E6%91%84%E5%BD%B1/preview.jpg",
     content: [
       { type: 'image', url: "https://img.zcool.cn/community/699c936bd69a6n6w65vrtg4010.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'image', url: "https://img.zcool.cn/community/699934535ed32qj4e2n30q4721.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
@@ -172,6 +172,25 @@ const PROJECTS = [
       { type: 'image', url: "https://img.zcool.cn/community/699dc5bac3d7ajmvgfutii5082.png?x-oss-process=image/saveexif,1/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/quality,q_100/format,webp" },
       { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/4.mp4" }
     ]
+  },
+  {
+    id: "l02",
+    title: "AIGC动画短片",
+    subtitle: "AI ANIMATION",
+    category: "Experiment / 实验",
+    year: "2024",
+    description: "利用生成式AI技术创作的实验性动画短片。",
+    homeTitle: "AIGC动画",
+    previewImg: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%2010%20AIGC%E5%8A%A8%E7%94%BB%E7%9F%AD%E7%89%87%E9%A2%84%E5%91%8A/%E5%8E%9F%E7%94%BB01.jpg",
+    content: [
+      { type: 'image', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%2010%20AIGC%E5%8A%A8%E7%94%BB%E7%9F%AD%E7%89%87%E9%A2%84%E5%91%8A/%E5%8E%9F%E7%94%BB01.jpg" },
+      { type: 'image', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%2010%20AIGC%E5%8A%A8%E7%94%BB%E7%9F%AD%E7%89%87%E9%A2%84%E5%91%8A/%E5%8E%9F%E7%94%BB02.jpg" },
+      { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%2010%20AIGC%E5%8A%A8%E7%94%BB%E7%9F%AD%E7%89%87%E9%A2%84%E5%91%8A/lovart-animate-smallsize.mp4", aspect: "4/3" },
+      { type: 'image', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%2010%20AIGC%E5%8A%A8%E7%94%BB%E7%9F%AD%E7%89%87%E9%A2%84%E5%91%8A/%E5%88%86%E9%95%9C%20%E6%8B%B7%E8%B4%9D.jpg" },
+      { type: 'image', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%2010%20AIGC%E5%8A%A8%E7%94%BB%E7%9F%AD%E7%89%87%E9%A2%84%E5%91%8A/%E8%A7%92%E8%89%B2%E8%AE%BE%E5%AE%9A02.jpg" },
+      { type: 'image', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%2010%20AIGC%E5%8A%A8%E7%94%BB%E7%9F%AD%E7%89%87%E9%A2%84%E5%91%8A/%E8%A7%92%E8%89%B2%E8%AE%BE%E5%AE%9A01.jpg" },
+      { type: 'image', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%2010%20AIGC%E5%8A%A8%E7%94%BB%E7%9F%AD%E7%89%87%E9%A2%84%E5%91%8A/%E8%A7%92%E8%89%B2%E8%AE%BE%E5%AE%9A%E5%A4%A7%E5%9B%BE.jpg" }
+    ]
   }
 ];
 
@@ -182,8 +201,8 @@ const EXPERIENCES = [
     tags: ["摄影与数码艺术专业", "2020-2024"],
     description: "在校期间系统学习了当代摄影艺术理论、商业摄影实务以及数码媒介创作。通过跨学科的艺术教育，建立了扎实的视觉审美基础与影像叙事能力，并将其应用于后续的商业实践与品牌传播中。",
     images: [
-      "https://picui.ogmua.cn/s1/2026/02/26/699fe49c62bc2.webp",
-      "https://picui.ogmua.cn/s1/2026/02/26/699fe49c94d9f.webp"
+      "https://myportfolio.oss-cn-shanghai.aliyuncs.com/abou/about1.jpg",
+      "https://myportfolio.oss-cn-shanghai.aliyuncs.com/abou/about2.jpg"
     ]
   },
   {
@@ -197,7 +216,7 @@ const EXPERIENCES = [
     tags: ["Aporro", "2024.07 – 2025.03"],
     description: "全面负责潮流珠宝品牌 Aporro 的海外视觉内容创作。工作内容涵盖海外市场趋势调研、创意策划及高质量短视频制作，致力于通过影像叙事强化品牌在国际市场 (Instagram) 的视觉表达。",
     images: [
-      "https://picui.ogmua.cn/s1/2026/02/26/699fe49b49779.webp"
+      "https://myportfolio.oss-cn-shanghai.aliyuncs.com/abou/about3.png"
     ]
   },
   {
@@ -205,7 +224,7 @@ const EXPERIENCES = [
     tags: ["创始人", "商业摄影师", "2022.04 – 2024.06"],
     description: "创立并运营独立商业摄影工作室，提供影棚租赁及商业拍摄服务。在运营期间负责品牌维护与日常管理，并以制片人、摄影师及剪辑师等多重身份，为“柠季”等知名品牌策划并统筹制作商业宣传片。",
     images: [
-      "https://picui.ogmua.cn/s1/2026/02/26/699fe49b184a7.webp"
+      "https://myportfolio.oss-cn-shanghai.aliyuncs.com/abou/about4.PNG"
     ]
   }
 ];
@@ -220,10 +239,10 @@ const LABS = [
     year: "2024",
     description: "一个小测试：利用aigc工具生成时装模特展示视频",
     homeTitle: "光影实验",
-    previewImg: "https://picui.ogmua.cn/s1/2026/03/02/69a55bc7400b8.webp",
+    previewImg: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/lab/aigc-test01-preview.png",
     content: [
       { type: 'video', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/lab-aigctest01.mp4" },
-      { type: 'image', url: "https://picui.ogmua.cn/s1/2026/03/02/69a55b6acf428.webp" }
+      { type: 'image', url: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/lab/WX20260302-174255%402x.png" }
     ]
   }
 ];
@@ -648,7 +667,7 @@ export default function App() {
                   {...fadeInUp(0)}
                 >
                   <img 
-                    src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/24/699c872569887.webp" 
+                    src="https://myportfolio.oss-cn-shanghai.aliyuncs.com/abou/IMG_4230.jpg" 
                     alt="Portrait" 
                     className="w-full h-full object-cover" 
                   />
@@ -774,15 +793,15 @@ export default function App() {
               <div className="max-w-xl mb-20 md:mb-32">
                 <p className="text-base md:text-lg leading-relaxed opacity-50 sans-zh text-black whitespace-pre-wrap">{activeProject.description}</p>
               </div>
-              <div className="flex flex-col items-center gap-12 md:gap-40 mb-20 md:mb-40">
+              <div className="flex flex-col items-center mb-20 md:mb-40 gap-[10px]">
                 {activeProject.content.map((item, i) => (
                   item.type === 'video' ? (
-                    <div key={i} className="w-[85%] md:w-[70%] bg-black">
+                    <div key={i} className={`w-[98%] md:w-[85%] bg-black overflow-hidden ${item.aspect === '4/3' ? 'aspect-[4/3]' : ''}`}>
                       <video 
                         src={item.url} 
                         playsInline 
                         controls 
-                        className="w-full h-auto" 
+                        className={`w-full ${item.aspect === '4/3' ? 'h-full object-cover' : 'h-auto'}`}
                       />
                     </div>
                   ) : (
@@ -790,14 +809,7 @@ export default function App() {
                       key={i} 
                       src={item.url} 
                       alt="" 
-                      className="w-[98%] h-auto md:w-[50%]"
-                      onLoad={(e) => {
-                        // 如果图片是横图（宽 > 高），则放大显示宽度
-                        if (e.target.naturalWidth > e.target.naturalHeight) {
-                          e.target.classList.remove('md:w-[50%]');
-                          e.target.classList.add('md:w-[70%]');
-                        }
-                      }}
+                      className="w-[98%] h-auto md:w-[85%]"
                     />
                   )
                 ))}
