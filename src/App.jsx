@@ -179,7 +179,7 @@ const PROJECTS = [
     subtitle: "AI ANIMATION",
     category: "Experiment / 实验",
     year: "2024",
-    description: "利用生成式AI技术创作的实验性动画短片。",
+    description: "利用生成式AIGC工具创作的实验性动画短片。",
     homeTitle: "AIGC动画",
     previewImg: "https://myportfolio.oss-cn-shanghai.aliyuncs.com/work%2010%20AIGC%E5%8A%A8%E7%94%BB%E7%9F%AD%E7%89%87%E9%A2%84%E5%91%8A/%E5%8E%9F%E7%94%BB01.jpg",
     content: [
@@ -793,7 +793,7 @@ export default function App() {
               <div className="max-w-xl mb-20 md:mb-32">
                 <p className="text-base md:text-lg leading-relaxed opacity-50 sans-zh text-black whitespace-pre-wrap">{activeProject.description}</p>
               </div>
-              <div className="flex flex-col items-center mb-20 md:mb-40 gap-[10px]">
+              <div className="flex flex-col items-center mb-20 md:mb-40 gap-[30px]">
                 {activeProject.content.map((item, i) => (
                   item.type === 'video' ? (
                     <div key={i} className={`w-[98%] md:w-[85%] bg-black overflow-hidden ${item.aspect === '4/3' ? 'aspect-[4/3]' : ''}`}>
